@@ -7,7 +7,7 @@
 ## Requisitos
 
 - [ ] Posso obter histórico de alterações do objeto de todos os processos
-- [ ] Posso exibir o estado do objeto de qualquer ponto na história do processo
+- [ ] Posso exibir o estado do objeto de qualquer etapa do processo
 - [ ] Deve permitir composição do objeto
 - [ ] Deve permitir normalização de dados para cada etapa do processo caso seja necessário
 - [ ] Deve persistir cada estado no banco cassandra identificando o processo E a etapa E a versão E os dados E a data de início e fim da etapa E o identificador global do processo (guid)
