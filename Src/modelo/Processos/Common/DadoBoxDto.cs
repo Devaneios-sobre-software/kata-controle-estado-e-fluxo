@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 
 namespace modelo.Processos
@@ -7,6 +8,7 @@ namespace modelo.Processos
         public IEnumerable Notificacoes { get; }
 
         public IDadoDto DadoDto { get; }
+
 
         public DadoBoxDto(IDadoDto dado)
         {
