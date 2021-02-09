@@ -1,5 +1,11 @@
 # Criar fluxos para brincar com soluções de controle de estado sem seguir padrão GoF
 
+## Regras repo
+
+- Soluções divididas por branch
+
+## Requisitos
+
 - [ ] Posso obter histórico de alterações do objeto de todos os processos
 - [ ] Posso exibir o estado do objeto de qualquer ponto na história do processo
 - [ ] Deve permitir composição do objeto
