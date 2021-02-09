@@ -17,3 +17,5 @@
 - [ ] Deve permitir validação de saída de dados na etapa
 - [ ] Posso utilizar etapa de um processo em outro processo praticando o reuso
 - [ ] Posso compor um processo novo utilizando outros processos
+- [ ] Posso consumir serviços externos para compor objeto de etapa
+- [ ] Posso consumir serviços externos para validar objeto de etapa
