@@ -1,14 +1,15 @@
 using System;
+using System.Collections.Generic;
 using modelo.Processos.MotorDeCarro.Dtos;
 
 namespace modelo.Processos.Validacao
 {
     public class ProcessoValidacao : IProcessoValidacao
     {
-        (string msg, Func<IPossuiMotor, bool> regra) regra;
-        public ProcessoValidacao((string msg, Func<IPossuiMotor, bool> regra) regra)
+        IList<(string msg, Func<IPossuiMotor, bool> regra)> regras;
+        public ProcessoValidacao(IList<(string msg, Func<IPossuiMotor, bool> regra)> regras)
         {
-            this.regra = regra;
+            this.regras = regras;
         }
         public ProcessoValidacao()
         {
@@ -16,13 +17,14 @@ namespace modelo.Processos.Validacao
         }
         public IDadoBoxDto Executar(IDadoBoxDto entrada)
         {
-
             var a = (IPossuiMotor)entrada.DadoDto;
-            var res = regra.regra?.Invoke(a) ?? false;
 
-            if (res)
+            foreach (var regra in regras)
             {
-                entrada.Notificador.Adicionar(regra.msg);
+                if (regra.regra.Invoke(a))
+                {
+                    entrada.Notificador.Adicionar(regra.msg);
+                }
             }
 
             return entrada;
