@@ -1,13 +1,12 @@
 using System;
 using System.Collections;
+using modelo.Suportes;
 
 namespace modelo.Processos
 {
     public interface IDadoBoxDto
     {
-        IEnumerable Notificacoes { get; }
+        INotificacao Notificador { get; }
         IDadoDto DadoDto { get; }
-
-        IEnumerable AdicionarNotificacao(string notificacao);
     }
 }

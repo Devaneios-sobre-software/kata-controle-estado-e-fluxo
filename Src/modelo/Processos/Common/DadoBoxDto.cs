@@ -1,23 +1,24 @@
 using System;
 using System.Collections;
+using modelo.Processos.MotorDeCarro.Dtos;
+using modelo.Suportes;
 
 namespace modelo.Processos
 {
-    public sealed class DadoBoxDto : IDadoBoxDto
+    public record DadoBoxDto : IDadoBoxDto
     {
-        public IEnumerable Notificacoes { get; }
+        public IDadoDto DadoDto { get; init; }
 
-        public IDadoDto DadoDto { get; }
+        public INotificacao Notificador { get; }
 
-
-        public DadoBoxDto(IDadoDto dado)
+        public DadoBoxDto()
         {
-            this.DadoDto = dado;
+            Notificador = new NotificacaoRetornoProcesso();
         }
 
-        public IEnumerable AdicionarNotificacao(string notificacao)
+        public DadoBoxDto(IDadoDto dado) : this()
         {
-            throw new System.NotImplementedException();
+            this.DadoDto = dado;
         }
     }
 }

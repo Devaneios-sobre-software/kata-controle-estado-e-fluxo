@@ -2,6 +2,8 @@ using System;
 using Xunit;
 using modelo.Processos.MotorDeCarro;
 using modelo.Processos;
+using modelo.Processos.Mapeamento;
+using modelo.Processos.Validacao;
 
 namespace modelo.teste
 {
@@ -11,6 +13,8 @@ namespace modelo.teste
         public void DeveExecutarProcessoDeMontagemDeMotorDeCarroComSucesso()
         {
             var processoMontado = new ProcessoBuilder()
+                .AdicionarMapeamento(new ProcessoMapeamento())
+                .AdicionarValidacao(new ProcessoValidacao())
                 .Adicionar(new CabecoteProcesso())
                 .Adicionar(new ComandoDeValvulaProcesso())
                 .Adicionar(new CilindroProcesso())
@@ -32,7 +36,7 @@ namespace modelo.teste
             Func<string, bool> specValidacao = (p) => p != null;
 
             var processoMontado = new ProcessoBuilder()
-                .Adicionar(new CabecoteValidacaoProcesso());
+                .AdicionarValidacao(new CabecoteValidacaoProcesso());
 
             var resultado = new ProcessoExecucaoPilhaService(new DadoBoxDto(new DadoDto("aluminio")))
                             .RodarPilha(processoMontado);

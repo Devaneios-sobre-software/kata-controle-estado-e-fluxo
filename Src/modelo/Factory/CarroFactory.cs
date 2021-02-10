@@ -1,9 +1,11 @@
 using System.Linq;
 using modelo.Processos;
+using modelo.Processos.Mapeamento;
 using modelo.Processos.MotorDeCarro;
 using modelo.Processos.RodaDeCarro;
 using modelo.Processos.RodaDeCarro.CaixaMarcha;
 using modelo.Processos.RodaDeCarro.Carroceria;
+using modelo.Processos.Validacao;
 
 namespace modelo.Factory
 {

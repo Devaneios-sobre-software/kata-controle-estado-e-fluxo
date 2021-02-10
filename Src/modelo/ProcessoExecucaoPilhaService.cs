@@ -5,7 +5,6 @@ namespace modelo
 {
     public sealed class ProcessoExecucaoPilhaService
     {
-        ProcessoBuilder processoMontado;
         IDadoBoxDto dadoInicial;
         IList<IDadoBoxDto> lista;
 
