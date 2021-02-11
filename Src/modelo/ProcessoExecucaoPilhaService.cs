@@ -5,11 +5,12 @@ namespace modelo
 {
     public sealed class ProcessoExecucaoPilhaService
     {
-
+        IDadoBoxDto dadoInicial;
         IList<IDadoBoxDto> retornosProcessosExecutados;
 
         public ProcessoExecucaoPilhaService(IDadoBoxDto dadoInicial)
         {
+            this.dadoInicial = dadoInicial;
             retornosProcessosExecutados = new List<IDadoBoxDto>
             {
                 dadoInicial
@@ -38,7 +39,7 @@ namespace modelo
             var quantidade = retornosProcessosExecutados.Count;
             if (quantidade == 0)
             {
-                return null;
+                return this.dadoInicial;
             }
             else
             {
