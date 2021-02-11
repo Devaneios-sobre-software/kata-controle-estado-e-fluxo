@@ -22,7 +22,7 @@ namespace modelo.Suportes
 
         public IEnumerable Obter()
         {
-            return this.notificacoes.AsEnumerable();
+            return this.notificacoes;
         }
     }
 }
