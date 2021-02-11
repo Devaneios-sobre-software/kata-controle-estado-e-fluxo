@@ -27,8 +27,6 @@ namespace modelo.teste
             var pilha = new ProcessoExecucaoPilhaService(new DadoBoxDto(new DadoDto("aluminio")));
             var resultado = pilha.RodarPilha(processoMontado).ObterResultadoDeExecucao();
 
-            var hist = pilha.ObterHistoricoExecucao();
-
             Assert.True(resultado.DadoDto?.ToString() == "aluminio");
         }
 
