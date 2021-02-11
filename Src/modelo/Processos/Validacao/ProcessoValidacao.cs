@@ -12,7 +12,7 @@ namespace modelo.Processos.Validacao
         {
             this.regras = regras;
         }
-        public ProcessoValidacao()
+        public ProcessoValidacao() : this(new List<(string msg, Expression<Func<IDadoDto, bool>> regra)>())
         {
 
         }
