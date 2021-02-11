@@ -1,4 +1,4 @@
-# Criar fluxos para brincar com soluções de controle de estado sem seguir padrão GoF
+# Criar fluxos para brincar com soluções de controle de estado ~~sem seguir padrão GoF~~
 
 ## Regras repo
 
