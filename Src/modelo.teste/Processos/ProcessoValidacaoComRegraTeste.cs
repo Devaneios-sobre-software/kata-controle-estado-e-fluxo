@@ -28,12 +28,8 @@ namespace modelo.teste.Processos
             var exec = new ProcessoExecucaoPilhaService(new DadoBoxDto(new CarroUno1_0 { Nome = "Uno", AnoFabricacao = 2020 }))
                 .RodarPilha(processoMontado);
 
-            var hist1 = exec.ObterHistoricoExecucao();
-
             var resultado = exec
             .ObterResultadoDeExecucao();
-
-            var hist2 = exec.ObterHistoricoExecucao();
 
             var not = resultado.Notificador.Obter().GetEnumerator();
 
