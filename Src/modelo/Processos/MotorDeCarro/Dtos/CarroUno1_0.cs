@@ -1,3 +1,5 @@
+using modelo.Processos.Common;
+
 namespace modelo.Processos.MotorDeCarro.Dtos
 {
     public record CarroUno1_0 : IDadoDto, IPossuiMotor

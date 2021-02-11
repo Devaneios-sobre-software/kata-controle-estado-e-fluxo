@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using modelo.Processos.Common;
 using modelo.Suportes;
 
-namespace modelo.Processos
+namespace modelo.Processos.Common
 {
     public interface IDadoBoxDto
     {

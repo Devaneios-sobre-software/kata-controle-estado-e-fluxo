@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using modelo.Processos.MotorDeCarro.Dtos;
 
-namespace modelo.Processos.Validacao
+namespace modelo.Processos.Common
 {
     public class ProcessoValidacao : IProcessoValidacao
     {

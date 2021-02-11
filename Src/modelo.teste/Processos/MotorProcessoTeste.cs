@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using modelo.Factory;
-using modelo.Processos;
+using modelo.Processos.Common;
 using modelo.Processos.Mapeamento;
 using modelo.Processos.MotorDeCarro;
 using modelo.Processos.MotorDeCarro.Dtos;
-using modelo.Processos.Validacao;
 using Xunit;
 
 namespace modelo.teste.Processos

@@ -1,6 +1,5 @@
 using modelo.Factory;
-using modelo.Processos;
-using modelo.Processos.MotorDeCarro;
+using modelo.Processos.Common;
 using Xunit;
 
 namespace modelo.teste

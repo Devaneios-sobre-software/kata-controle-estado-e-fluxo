@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using modelo.Processos;
-using modelo.Processos.MotorDeCarro;
 using modelo.Processos.MotorDeCarro.Dtos;
-using modelo.Processos.Validacao;
 using Xunit;
 
 namespace modelo.teste.Processos.Regras

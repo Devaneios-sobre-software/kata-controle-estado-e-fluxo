@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using modelo.Processos;
-using modelo.Processos.Validacao;
+using modelo.Processos.Common;
 using Xunit;
 
 namespace modelo.teste.Processos

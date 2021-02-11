@@ -1,6 +1,4 @@
-using modelo.Processos.Common;
-
-namespace modelo.Processos
+namespace modelo.Processos.Common
 {
     public interface IProcesso
     {

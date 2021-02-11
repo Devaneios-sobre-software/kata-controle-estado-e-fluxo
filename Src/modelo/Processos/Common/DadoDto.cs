@@ -1,6 +1,4 @@
-using modelo.Processos.MotorDeCarro.Dtos;
-
-namespace modelo.Processos
+namespace modelo.Processos.Common
 {
     public sealed class DadoDto : IDadoDto
     {

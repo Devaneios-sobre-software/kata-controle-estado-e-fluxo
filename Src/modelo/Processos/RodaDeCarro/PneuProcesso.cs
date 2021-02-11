@@ -1,3 +1,5 @@
+using modelo.Processos.Common;
+
 namespace modelo.Processos.RodaDeCarro
 {
     public class PneuProcesso : IProcesso

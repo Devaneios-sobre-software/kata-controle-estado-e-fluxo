@@ -1,4 +1,4 @@
-using modelo.Processos.MotorDeCarro.Dtos;
+using modelo.Processos.Common;
 
 namespace modelo.Processos.MotorDeCarro
 {

@@ -1,9 +1,8 @@
 using System;
 using Xunit;
 using modelo.Processos.MotorDeCarro;
-using modelo.Processos;
 using modelo.Processos.Mapeamento;
-using modelo.Processos.Validacao;
+using modelo.Processos.Common;
 
 namespace modelo.teste
 {

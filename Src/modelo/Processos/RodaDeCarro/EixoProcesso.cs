@@ -1,3 +1,4 @@
+using modelo.Processos.Common;
 using modelo.Processos.RodaDeCarro.Eixo;
 
 namespace modelo.Processos.RodaDeCarro

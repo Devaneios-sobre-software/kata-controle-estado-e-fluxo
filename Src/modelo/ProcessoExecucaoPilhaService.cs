@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using modelo.Processos;
+using modelo.Processos.Common;
 
 namespace modelo
 {
