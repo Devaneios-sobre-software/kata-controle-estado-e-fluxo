@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using modelo.Processos;
 using modelo.Processos.MotorDeCarro;
 using modelo.Processos.MotorDeCarro.Dtos;
@@ -13,24 +14,32 @@ namespace modelo.teste.Processos
         [Fact]
         public void DeveGerarNotificacaoDeInexistenciaDeMotor()
         {
-            IList<(string msg, Func<IPossuiMotor, bool> regra)> regras = new List<(string msg, Func<IPossuiMotor, bool> regra)>
+            IList<(string msg, Expression<Func<IDadoDto, bool>> regra)> regras = new List<(string msg, Expression<Func<IDadoDto, bool>> regra)>
             {
-                (msg: "Entrada nao possui motor", regra: (p) => p.Motor == null),
-                (msg: "Entrada nao possui motor Bosh", regra: (p) => p.Motor == null)
+                (msg: "Entrada nao é motor", regra: (p) => p is IPossuiMotor),
+                (msg: "Entrada nao possui motor", regra: (p) => (p as IPossuiMotor) == null),
+                (msg: "Entrada nao possui motor Bosh", regra: (p) => ((p as IPossuiMotor) as Motor) is Motor &&  ((p as IPossuiMotor) as Motor).Marca == "Bosh")
             };
 
             var processoMontado = new ProcessoBuilder()
                 .AdicionarValidacao(new ProcessoValidacao(regras))
                 .Adicionar(new CabecoteProcesso());
 
-            var resultado = new ProcessoExecucaoPilhaService(new DadoBoxDto(new CarroUno1_0 { Nome = "Uno", AnoFabricacao = 2020 }))
+            var exec = new ProcessoExecucaoPilhaService(new DadoBoxDto(new CarroUno1_0 { Nome = "Uno", AnoFabricacao = 2020 }))
                 .RodarPilha(processoMontado);
+
+            var hist1 = exec.ObterHistoricoExecucao();
+
+            var resultado = exec
+            .ObterResultadoDeExecucao();
+
+            var hist2 = exec.ObterHistoricoExecucao();
 
             var not = resultado.Notificador.Obter().GetEnumerator();
 
             not.MoveNext();
 
-            Assert.True(not.Current?.ToString() == "Entrada nao possui motor");
+            Assert.True(not.Current?.ToString() == "Entrada nao é motor");
         }
     }
 }

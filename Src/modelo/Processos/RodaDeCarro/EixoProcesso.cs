@@ -12,7 +12,8 @@ namespace modelo.Processos.RodaDeCarro
                 .Adicionar(new ColocarRodaNoEixoProcesso());
 
             return new ProcessoExecucaoPilhaService(entrada)
-                .RodarPilha(eixo);
+                .RodarPilha(eixo)
+                .ObterResultadoDeExecucao();
         }
     }
 }

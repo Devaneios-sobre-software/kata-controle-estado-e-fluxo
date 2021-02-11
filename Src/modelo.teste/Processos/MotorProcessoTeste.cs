@@ -19,7 +19,8 @@ namespace modelo.teste.Processos
                 .Adicionar(new CabecoteProcesso());
 
             var resultado = new ProcessoExecucaoPilhaService(new DadoBoxDto(new CarroUno1_0 { Nome = "Uno", AnoFabricacao = 2020 }))
-                .RodarPilha(processoMontado);
+                .RodarPilha(processoMontado)
+                .ObterResultadoDeExecucao();
 
             Assert.True(((Motor)((IPossuiMotor)resultado?.DadoDto)?.Motor)?.Marca == "Bosh" && ((CarroUno1_0)resultado.DadoDto).Nome == "Uno");
         }
@@ -32,7 +33,8 @@ namespace modelo.teste.Processos
                 .Adicionar(new CabecoteProcesso());
 
             var resultado = new ProcessoExecucaoPilhaService(new DadoBoxDto(new CarroUno1_0 { Nome = "Uno", AnoFabricacao = 2020 }))
-                .RodarPilha(processoMontado);
+                .RodarPilha(processoMontado)
+                .ObterResultadoDeExecucao();
 
             var not = resultado.Notificador.Obter().GetEnumerator();
 

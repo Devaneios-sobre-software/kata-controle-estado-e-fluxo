@@ -5,28 +5,45 @@ namespace modelo
 {
     public sealed class ProcessoExecucaoPilhaService
     {
-        IDadoBoxDto dadoInicial;
-        IList<IDadoBoxDto> lista;
+
+        IList<IDadoBoxDto> retornosProcessosExecutados;
 
         public ProcessoExecucaoPilhaService(IDadoBoxDto dadoInicial)
         {
-            this.dadoInicial = dadoInicial;
-            lista = new List<IDadoBoxDto>
+            retornosProcessosExecutados = new List<IDadoBoxDto>
             {
                 dadoInicial
             };
         }
 
-        public IDadoBoxDto RodarPilha(ProcessoBuilder processoMontado)
+        public ProcessoExecucaoPilhaService RodarPilha(ProcessoBuilder processoMontado)
         {
-            var processos = processoMontado.Build();
+            var processosMontados = processoMontado.Build();
 
-            for (sbyte indice = 0; indice < processos.Count; indice++)
+            for (sbyte indice = 0; indice < processosMontados.Count; indice++)
             {
-                lista.Add(processos[indice].Executar(lista[indice]));
+                retornosProcessosExecutados.Add(processosMontados[indice].Executar(retornosProcessosExecutados[indice]));
             }
 
-            return lista[lista.Count - 1];
+            return this;
+        }
+
+        public IEnumerable<IDadoBoxDto> ObterHistoricoExecucao()
+        {
+            return this.retornosProcessosExecutados;
+        }
+
+        public IDadoBoxDto ObterResultadoDeExecucao()
+        {
+            var quantidade = retornosProcessosExecutados.Count;
+            if (quantidade == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return retornosProcessosExecutados[retornosProcessosExecutados.Count - 1];
+            }
         }
     }
 }

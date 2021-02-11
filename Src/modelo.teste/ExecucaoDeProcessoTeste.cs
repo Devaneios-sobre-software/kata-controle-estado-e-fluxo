@@ -24,8 +24,10 @@ namespace modelo.teste
                 .Adicionar(new CarterDeOleoMotorProcesso())
                 .Adicionar(new CamaraDeCombustaoProcesso());
 
-            var resultado = new ProcessoExecucaoPilhaService(new DadoBoxDto(new DadoDto("aluminio")))
-                .RodarPilha(processoMontado);
+            var pilha = new ProcessoExecucaoPilhaService(new DadoBoxDto(new DadoDto("aluminio")));
+            var resultado = pilha.RodarPilha(processoMontado).ObterResultadoDeExecucao();
+
+            var hist = pilha.ObterHistoricoExecucao();
 
             Assert.True(resultado.DadoDto?.ToString() == "aluminio");
         }
@@ -39,7 +41,8 @@ namespace modelo.teste
                 .AdicionarValidacao(new CabecoteValidacaoProcesso());
 
             var resultado = new ProcessoExecucaoPilhaService(new DadoBoxDto(new DadoDto("aluminio")))
-                            .RodarPilha(processoMontado);
+                            .RodarPilha(processoMontado)
+                            .ObterResultadoDeExecucao();
 
             Assert.True(resultado.DadoDto?.ToString() == "aluminio");
 

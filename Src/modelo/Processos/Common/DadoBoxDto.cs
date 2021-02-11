@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using modelo.Processos.Common;
 using modelo.Processos.MotorDeCarro.Dtos;
 using modelo.Suportes;
 
@@ -20,5 +21,6 @@ namespace modelo.Processos
         {
             this.DadoDto = dado;
         }
+
     }
 }

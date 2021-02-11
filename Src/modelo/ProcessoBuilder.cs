@@ -7,11 +7,13 @@ namespace modelo
 {
     public sealed class ProcessoBuilder
     {
-        readonly IList<IProcesso> processos = new List<IProcesso>();
+        readonly Guid ProcessoId;
+        readonly IList<IProcesso> processos;
 
         public ProcessoBuilder()
         {
-
+            this.processos = new List<IProcesso>();
+            this.ProcessoId = Guid.NewGuid();
         }
 
         public ProcessoBuilder Adicionar(IProcesso processo)

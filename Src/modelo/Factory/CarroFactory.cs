@@ -29,13 +29,15 @@ namespace modelo.Factory
                 .Adicionar(new CamaraDeCombustaoProcesso());
 
             var motor = new ProcessoExecucaoPilhaService(entrada)
-                .RodarPilha(montaMotor);
+                .RodarPilha(montaMotor)
+                .ObterResultadoDeExecucao();
 
             var montaEixo = new ProcessoBuilder()
                 .Adicionar(new EixoProcesso());
 
             var eixo = new ProcessoExecucaoPilhaService(motor)
-               .RodarPilha(montaEixo);
+               .RodarPilha(montaEixo)
+               .ObterResultadoDeExecucao();
 
 
             var montaCaixaDeMarcha = new ProcessoBuilder()
@@ -43,7 +45,8 @@ namespace modelo.Factory
                 .Adicionar(new LubrificarProcesso());
 
             var caixaMarcha = new ProcessoExecucaoPilhaService(motor)
-               .RodarPilha(montaCaixaDeMarcha);
+               .RodarPilha(montaCaixaDeMarcha)
+               .ObterResultadoDeExecucao();
 
 
             var montaCarroceria = new ProcessoBuilder()
@@ -57,7 +60,8 @@ namespace modelo.Factory
                ;
 
             var carroceria = new ProcessoExecucaoPilhaService(motor)
-                .RodarPilha(montaCarroceria);
+                .RodarPilha(montaCarroceria)
+                .ObterResultadoDeExecucao();
 
             return carroceria;
         }
