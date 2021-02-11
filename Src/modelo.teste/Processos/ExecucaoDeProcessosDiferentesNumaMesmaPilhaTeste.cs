@@ -12,10 +12,10 @@ using Xunit;
 
 namespace modelo.teste.Processos
 {
-    public class JucaoDeProcessosNumaMesmaPilhaTeste
+    public class ExecucaoDeProcessosDiferentesNumaMesmaPilhaTeste
     {
         [Fact]
-        public void DeveJuntarDoisProcessosDiferentesComProblemaDeValidacao()
+        public void DeveExecutarDoisProcessosDiferentesComProblemaDeValidacao()
         {
             IList<(string msg, Expression<Func<IDadoDto, bool>> regra)> regrasProcessoMontado1 = new List<(string msg, Expression<Func<IDadoDto, bool>> regra)>
             {
@@ -55,7 +55,7 @@ namespace modelo.teste.Processos
         }
 
         [Fact]
-        public void DeveJuntarDoisProcessosDiferentesSemValidacao()
+        public void DeveExecutarDoisProcessosDiferentesSemValidacao()
         {
             var processoMontado1 = new ProcessoBuilder()
                 .AdicionarValidacao(new ProcessoValidacao());
