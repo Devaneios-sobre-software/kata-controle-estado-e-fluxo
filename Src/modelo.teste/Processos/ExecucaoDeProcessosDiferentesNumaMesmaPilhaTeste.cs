@@ -1,13 +1,9 @@
-
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using modelo.Processos;
-using modelo.Processos.MotorDeCarro.Dtos;
 using modelo.Processos.Validacao;
-using modelo.Suportes;
 using Xunit;
 
 namespace modelo.teste.Processos
