@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using modelo.Factory;
 using modelo.Processos;
 using modelo.Processos.Mapeamento;
@@ -28,8 +31,13 @@ namespace modelo.teste.Processos
         [Fact]
         public void DeveGerarNotificacaoDeInexistenciaDeMotor()
         {
+            IList<(string msg, Expression<Func<IDadoDto, bool>> regra)> regras = new List<(string msg, Expression<Func<IDadoDto, bool>> regra)>
+            {
+                (msg: "Entrada nao possui motor", regra: (p) => p is IPossuiMotor)
+            };
+
             var processoMontado = new ProcessoBuilder()
-                .AdicionarValidacao(new ProcessoValidacao())
+                .AdicionarValidacao(new ProcessoValidacao(regras))
                 .Adicionar(new CabecoteProcesso());
 
             var resultado = new ProcessoExecucaoPilhaService(new DadoBoxDto(new CarroUno1_0 { Nome = "Uno", AnoFabricacao = 2020 }))
@@ -38,10 +46,9 @@ namespace modelo.teste.Processos
 
             var not = resultado.Notificador.Obter().GetEnumerator();
 
-            not.MoveNext();
+            not?.MoveNext();
 
-
-            Assert.True(not.Current?.ToString() == "Entrada nao possui motor");
+            Assert.True(not?.Current?.ToString() == "Entrada nao possui motor");
         }
 
     }
