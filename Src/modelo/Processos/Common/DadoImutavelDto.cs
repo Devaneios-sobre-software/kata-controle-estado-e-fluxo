@@ -2,16 +2,27 @@ namespace modelo.Processos.Common
 {
     public sealed class DadoDto : IDadoDto
     {
-        string dado;
+        string _dado;
 
-        public DadoDto(string dado)
+
+        public DadoDto(string dado, int casa = 0)
         {
-            this.dado = dado;
+            this._dado = dado;
         }
 
         public override string ToString()
         {
-            return this.dado;
+            return this._dado;
+        }
+
+        public static implicit operator string(DadoDto d)
+        {
+            return d.ToString();
+        }
+
+        public static implicit operator DadoDto(string d)
+        {
+            return new DadoDto(d);
         }
     }
 }

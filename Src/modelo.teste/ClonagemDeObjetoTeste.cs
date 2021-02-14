@@ -25,5 +25,24 @@ namespace modelo.teste
 
             Assert.False(d.Idade == dn.Idade && d.Nome == dn.Nome);
         }
+
+        [Fact]
+        public void DeveClonarObjetoStringPorValor()
+        {
+            IDadoBoxDto dado = new DadoBoxDto(new DadoDto("Pedro"));
+            dado.Notificador.Adicionar("11111");
+            var d = (DadoDto)dado.DadoDto;
+
+            var res = (DadoBoxDto)dado.ClonarObjeto();
+            res.Notificador.Adicionar("aaaaa");
+
+            var dd = (DadoDto)res.DadoDto;
+            res.addDado(new DadoDto("Monica"));
+
+            dado.Notificador.Adicionar("3333333");
+
+
+            Assert.False(dado.DadoDto.ToString() != res.DadoDto.ToString());
+        }
     }
 }

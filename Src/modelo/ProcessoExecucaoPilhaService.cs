@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using modelo.Processos;
 using modelo.Processos.Common;
+using modelo.Suportes;
 
 namespace modelo
 {
@@ -24,7 +25,7 @@ namespace modelo
 
             for (sbyte indice = 0; indice < processosMontados.Count; indice++)
             {
-                dadosExecutados.Add(processosMontados[indice].Executar(dadosExecutados[indice]));
+                dadosExecutados.Add(processosMontados[indice].Executar(dadosExecutados[indice].ClonarObjeto()));
             }
 
             return this;

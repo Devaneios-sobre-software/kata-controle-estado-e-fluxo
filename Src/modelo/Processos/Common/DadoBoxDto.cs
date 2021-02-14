@@ -2,11 +2,11 @@ using modelo.Suportes;
 
 namespace modelo.Processos.Common
 {
-    public record DadoBoxDto : IDadoBoxDto
+    public sealed class DadoBoxDto : IDadoBoxDto
     {
-        public IDadoDto DadoDto { get; init; }
+        public IDadoDto DadoDto { get; private set; }
 
-        public INotificacao Notificador { get; }
+        public INotificacao Notificador { get; private set; }
 
         public DadoBoxDto()
         {
@@ -16,6 +16,12 @@ namespace modelo.Processos.Common
         public DadoBoxDto(IDadoDto dado) : this()
         {
             this.DadoDto = dado;
+        }
+
+
+        public void addDado(IDadoDto d)
+        {
+            this.DadoDto = d;
         }
 
     }
