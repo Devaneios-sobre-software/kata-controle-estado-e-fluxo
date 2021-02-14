@@ -44,9 +44,9 @@ namespace modelo.teste
         }
     }
 
+    public interface IObjeto { }
 
-
-    public class Objeto
+    public class Objeto : IObjeto
     {
         public int teste = 0;
         public sbyte Adulto { get; set; } = 0;
@@ -115,9 +115,9 @@ namespace modelo.teste
             return n;
         }
 
-        public static object CriarObjeto3(this object d)
+        public static IObjeto CriarObjeto3(this IObjeto d)
         {
-            return Criar(d);
+            return (IObjeto)Criar(d);
         }
     }
 }
