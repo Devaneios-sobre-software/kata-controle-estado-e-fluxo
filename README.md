@@ -25,3 +25,20 @@
 - [ ] Posso compor um processo novo utilizando outros processos
 - [ ] Posso consumir serviços externos para compor objeto de etapa
 - [ ] Posso consumir serviços externos para validar objeto de etapa
+
+## Regras de commit
+
+### Legenda
+
+- adic -> Adicionado -> recurso novo, adição
+- ajst -> Ajustado -> correção de recurso existente, bugs (fix)
+- rmov -> Removido -> remoção de recurso
+- rft -> Refatorado -> melhoria de desempenho ou reorganização do código
+
+### Exemplo
+
+`Ex.: Ins: regra de commit`
+
+## Relatório
+
+...
