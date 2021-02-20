@@ -37,7 +37,7 @@
 
 ### Exemplo
 
-`Ex.: Ins: regra de commit`
+`Ex.: adic: regra de commit`
 
 ## Relatório
 
