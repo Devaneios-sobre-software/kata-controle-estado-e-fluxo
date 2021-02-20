@@ -33,7 +33,7 @@
 - adic -> Adicionado -> recurso novo, adição
 - ajst -> Ajustado -> correção de recurso existente, bugs (fix)
 - rmv -> Removido -> remoção de recurso
-- rft -> Refatorado -> melhoria de desempenho ou reorganização do código
+- rft -> Refatorado -> melhoria de desempenho ou reorganização ou limpeza do código 
 
 ### Exemplo
 
