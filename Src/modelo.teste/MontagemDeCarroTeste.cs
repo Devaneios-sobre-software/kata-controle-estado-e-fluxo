@@ -10,7 +10,7 @@ namespace modelo.teste
         public void DeveCriarCarroSimples()
         {
             var fabricaCarro = new CarroFactory()
-                .Criar(new DadoBoxDto(new DadoDto("aluminio")));
+                .Criar(new DadoBoxDto(new DadoImutavelDto("aluminio")));
 
             Assert.True(fabricaCarro.DadoDto?.ToString() == "aluminio");
         }

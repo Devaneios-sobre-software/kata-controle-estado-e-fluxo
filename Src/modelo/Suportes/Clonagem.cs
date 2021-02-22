@@ -25,10 +25,14 @@ namespace modelo.Suportes
 
             var ps = con.GetParameters();
 
-            var n = con.Invoke(ps.Select(s => default(object)).ToArray());
+
+            if (ps.Any(a => a.Name == null))
+                return null;
+
+            var n = con?.Invoke(ps.Select(s => default(object)).ToArray());
 
             var dmembros = d.GetType().GetMembers(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            var nmembros = n.GetType().GetMembers(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            var nmembros = n?.GetType().GetMembers(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 
 
             var tipos = new MemberTypes[] { MemberTypes.Property, MemberTypes.Field };
@@ -54,9 +58,11 @@ namespace modelo.Suportes
         {
             if (m.MemberType == MemberTypes.Property)
             {
+                var tipos = new Type[] { typeof(IDadoDto), typeof(IDadoBoxDto), typeof(INotificacao), typeof(IList) };
+
                 PropertyInfo prop = (PropertyInfo)m;
 
-                if (prop.SetMethod != null)
+                if (prop.SetMethod != null && prop.DeclaringType.GetInterfaces().Any(a => tipos.Contains(a)))
                 {
                     var dv = prop.GetValue(d);
 
@@ -68,7 +74,7 @@ namespace modelo.Suportes
 
                     var primitivo = dv.GetType().IsPrimitive;
 
-                    var tipos = new Type[] { typeof(IDadoDto), typeof(INotificacao) };
+
 
                     if (!primitivo && dv.GetType().GetInterfaces().Any(aa => tipos.Contains(aa)))
                     {
@@ -86,7 +92,6 @@ namespace modelo.Suportes
             {
                 FieldInfo prop = (FieldInfo)m;
 
-
                 var dv = prop.GetValue(d);
 
                 if (dv == null)
@@ -97,13 +102,14 @@ namespace modelo.Suportes
 
                 var primitivo = dv.GetType().IsPrimitive;
 
-                var tipos = new Type[] { typeof(IDadoDto) };
+                var tipos = new Type[] { typeof(IDadoDto), typeof(IDadoBoxDto), typeof(INotificacao), typeof(IList) };
 
                 if (!primitivo && dv.GetType().GetInterfaces().Any(aa => tipos.Contains(aa)))
                 {
                     nprop.SetValue(n, Clonar(dv));
                     return;
                 }
+
                 nprop.SetValue(n, dv);
 
             }

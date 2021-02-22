@@ -20,7 +20,7 @@ namespace modelo.teste.Processos.Regras
         [Fact]
         public void DeveExecutarRegraSimplesEAprovala()
         {
-            IRegra regra = new Regra { ObjetoTestado = new DadoDto(null), Mensagem = "mensagem", Expressao = a => a == null };
+            IRegra regra = new Regra { ObjetoTestado = new DadoImutavelDto(null), Mensagem = "mensagem", Expressao = a => a == null };
 
             var resultado = regra.Executar().Resultado;
 
@@ -30,7 +30,7 @@ namespace modelo.teste.Processos.Regras
         [Fact]
         public void DeveExecutarPoliticaEReprovala()
         {
-            IRegra regra1 = new Regra { ObjetoTestado = new DadoDto(null), Mensagem = "mensagem", Expressao = a => a.ToString() == null };
+            IRegra regra1 = new Regra { ObjetoTestado = new DadoImutavelDto(null), Mensagem = "mensagem", Expressao = a => a.ToString() == null };
             IRegra regra2 = new Regra { Mensagem = "mensagem", Expressao = a => a == null };
             IRegra regra3 = new Regra { Mensagem = "mensagem", Expressao = a => a == null };
 
@@ -47,8 +47,8 @@ namespace modelo.teste.Processos.Regras
         [Fact]
         public void DeveExecutarPoliticaEAprovada()
         {
-            IRegra regra1 = new Regra { ObjetoTestado = new DadoDto("dado1"), Mensagem = "mensagem", Expressao = a => a.ToString() == null };
-            IRegra regra2 = new Regra { ObjetoTestado = new DadoDto(null), Mensagem = "mensagem", Expressao = a => a == null };
+            IRegra regra1 = new Regra { ObjetoTestado = new DadoImutavelDto("dado1"), Mensagem = "mensagem", Expressao = a => a.ToString() == null };
+            IRegra regra2 = new Regra { ObjetoTestado = new DadoImutavelDto(null), Mensagem = "mensagem", Expressao = a => a == null };
             IRegra regra3 = new Regra { Mensagem = "mensagem", Expressao = a => a != null };
 
             IPoliticaRegraBuilder politica = new PoliticaRegraBuilder()

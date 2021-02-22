@@ -5,23 +5,23 @@ namespace modelo.Suportes
 {
     public sealed class NotificacaoRetornoProcesso : INotificacao
     {
-        IList<string> notificacoes;
+        IList<string> _notificacoes;
 
         public NotificacaoRetornoProcesso()
         {
-            notificacoes = new List<string>();
+            _notificacoes = new List<string>();
         }
         public INotificacao Adicionar(string mensagem)
         {
             if (!string.IsNullOrWhiteSpace(mensagem))
-                this.notificacoes.Add(mensagem);
+                this._notificacoes.Add(mensagem);
 
             return this;
         }
 
         public IEnumerable Obter()
         {
-            return this.notificacoes;
+            return this._notificacoes;
         }
     }
 }

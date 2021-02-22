@@ -1,13 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace modelo.Processos.Common
 {
-    public sealed class DadoDto : IDadoDto
+    public struct DadoImutavelDto : IDadoDto
     {
         string _dado;
+        public int MyProperty { get; set; }
+        public IList<string> Lista { get; set; }
 
-
-        public DadoDto(string dado, int casa = 0)
+        public DadoImutavelDto(string dado, int casa = 0)
         {
             this._dado = dado;
+            this.Lista = new List<string>();
+            this.MyProperty = 0;
         }
 
         public override string ToString()
@@ -15,14 +21,14 @@ namespace modelo.Processos.Common
             return this._dado;
         }
 
-        public static implicit operator string(DadoDto d)
+        public DadoImutavelDto Clonar()
         {
-            return d.ToString();
-        }
-
-        public static implicit operator DadoDto(string d)
-        {
-            return new DadoDto(d);
+            return new DadoImutavelDto
+            {
+                _dado = this._dado,
+                MyProperty = this.MyProperty,
+                Lista = Lista.Union(this.Lista).ToList()
+            };
         }
     }
 }
