@@ -2,7 +2,8 @@
 
 ## Regras repo
 
-- Soluções divididas por branch
+- Soluções devem ser divididas por branch
+- Utilização da solução num cenário real espe©ifico deve ser composto por <nome-da-branch-da-solucao>/<descricao-do-cenário>
 
 ## Requisitos
 
