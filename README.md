@@ -24,6 +24,7 @@
 - [ ] Posso ter processsos para consumir serviços externos (para compor agregado num processo por exemplo)
 - [ ] Posso reprocessar qualquer processo dentro de plano de execução 
 - [ ] Não deve permitir herança entre classes , apenas implementação de interface quando necessária
+- [ ] Deve possuir recurso para recuperação de dados persistidos
 
 ## Regras de commit
 
