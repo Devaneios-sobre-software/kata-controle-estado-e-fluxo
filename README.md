@@ -39,6 +39,6 @@
 
 `Ex.: adic: regra de commit`
 
-## Relatório
+## Relatório de resultados
 
 ...
