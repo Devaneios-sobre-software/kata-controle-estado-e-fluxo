@@ -5,7 +5,7 @@
 - Soluções devem ser divididas por branch
 - Utilização da solução num cenário real espe©ifico deve ser composto por <nome-da-branch-da-solucao>/<descricao-do-cenário>
 
-## Requisitos
+## Requisitos (moscow)
 
 - [ ] Posso obter "histórico" do resultado de todos os processos dentro de um plano de execução
 - [ ] Deve permitir composição do agregado (o agregado passado como entrada de um processo poderá ser alterado apenas se esse método de alteração estiver nele publicamente , de modo que somente ele possa realizar essa alteraçào, evitando assim o side-effect)
