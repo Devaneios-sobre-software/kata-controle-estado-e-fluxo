@@ -8,7 +8,8 @@
 ## Requisitos (moscow)
 
 - [ ] Posso obter "histórico" do resultado de todos os processos dentro de um plano de execução
-- [ ] Deve permitir composição do agregado (o agregado passado como entrada de um processo poderá ser alterado apenas se esse método de alteração estiver nele publicamente , de modo que somente ele possa realizar essa alteraçào, evitando assim o side-effect)
+- [ ] Deve criar um clone de objeto quando seu estado for alterado
+- [ ] Deve permitir composição de dado com clonagem (exemplo um agregado passado como entrada de um processo poderá ser alterado apenas se esse método de alteração estiver nele publicamente , de modo que somente ele possa realizar essa alteraçào, e quando ocorrer a alteração esse objeto deve ser clonado, evitando assim possível side-effect)
 - [ ] Deve permitir normalização de dados na entrada ou saída de processo, tratando-o como um outro processo. (processo de validação X por exemplo)
 - [ ] Deve persistir resultado de processo identificando-o com a versão E os dados gerados E a data de início e fim da etapa E o identificador global do plano de execução (guid) E o relatório de execução
 - [ ] Deve existir um controle para registrar eventos na execução de um plano. Esse controle deve se chamar relatório de execução. Será tipo um notification pattern
