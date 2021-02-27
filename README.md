@@ -3,7 +3,7 @@
 ## Regras repo
 
 - Soluções devem ser divididas por branch
-- Utilização da solução num cenário real espe©ifico deve ser composto por <nome-da-branch-da-solucao>/<descricao-do-cenário>
+- Utilização da solução num cenário real específico deve ser composto por nome-da-branch-da-solucao/descricao-do-cenário
 
 ## Requisitos (moscow)
 
