@@ -2,29 +2,30 @@
 
 ## Regras repo
 
-- Soluções devem ser divididas por branch
+- Soluções divididas por branch
 - Utilização da solução num cenário real específico deve ser composto por nome-da-branch-da-solucao/descricao-do-cenário
 
-## Requisitos (moscow)
+## Requisitos
 
-- [ ] Posso obter "histórico" do resultado de todos os processos dentro de um plano de execução
-- [ ] Deve criar um clone de objeto quando seu estado for alterado
-- [ ] Deve permitir composição de dado com clonagem (exemplo um agregado passado como entrada de um processo poderá ser alterado apenas se esse método de alteração estiver nele publicamente , de modo que somente ele possa realizar essa alteraçào, e quando ocorrer a alteração esse objeto deve ser clonado, evitando assim possível side-effect)
-- [ ] Deve permitir normalização de dados na entrada ou saída de processo, tratando-o como um outro processo. (processo de validação X por exemplo)
-- [ ] Deve persistir resultado de processo identificando-o com a versão E os dados gerados E a data de início e fim da etapa E o identificador global do plano de execução (guid) E o relatório de execução
-- [ ] Deve existir um controle para registrar eventos na execução de um plano. Esse controle deve se chamar relatório de execução. Será tipo um notification pattern
-- [ ] Posso interromper o plano de execução quando houver erro crítico em algum processo
-- [ ] Posso exibir o relatório de execução 
-- [ ] Deve persistir o relatório de execução 
+- [ ] Posso obter histórico de alterações do objeto de todos os processos
+- [ ] Posso exibir o estado do objeto de qualquer etapa do processo
+- [ ] Deve permitir composição do objeto
+- [ ] Deve permitir normalização de dados para cada etapa do processo caso seja necessário
+- [ ] Deve persistir cada estado no banco identificando o processo E a etapa E a versão E os dados E a data de início e fim da etapa E o identificador global do processo (guid)
+- [ ] Deve permitir rollback do ponto atual para um ponto específico no passado
+- [ ] Posso interromper o processo quando quiser
+- [ ] Pode haver cancelamento do processo todo quando houver erro em algum ponto
+- [ ] Deve exibir os erros ocorridos no processo
+- [ ] Deve persistir no banco os erros ocorridos no processo
 - [ ] Deve permitir versionamento do processo
-- [ ] Deve permitir versionamento do plano de execução
-- [ ] Posso executar ou não um processo baseado em suas políticas de execução (validação de política)
-- [ ] Deve permitir validação politica que será tratado como processo. (Validação de entrada ou saída de dados por exemplo)
-- [ ] Posso compor um processo utilizando outros processos e/ou planos de execução (composição)
-- [ ] Posso ter processsos para consumir serviços externos (para compor agregado num processo por exemplo)
-- [ ] Posso reprocessar qualquer processo dentro de plano de execução 
-- [ ] Não deve permitir herança entre classes , apenas implementação de interface quando necessária
-- [ ] Deve possuir recurso para recuperação de dados persistidos
+- [ ] Deve permitir versionamento de etapa do processo
+- [ ] Posso executar ou não uma etapa do processo baseado em suas regras de execução
+- [ ] Deve permitir validação de entrada de dados na etapa
+- [ ] Deve permitir validação de saída de dados na etapa
+- [ ] Posso utilizar etapa de um processo em outro processo praticando o reuso
+- [ ] Posso compor um processo novo utilizando outros processos
+- [ ] Posso consumir serviços externos para compor objeto de etapa
+- [ ] Posso consumir serviços externos para validar objeto de etapa
 
 ## Regras de commit
 
@@ -39,6 +40,4 @@
 
 `Ex.: adic: regra de commit`
 
-## Relatório de resultados
-
-...
+## Relatório conclusivo da solução
